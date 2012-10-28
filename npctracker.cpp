@@ -15,7 +15,8 @@ struct npcstruct {
 	};
 
 int main () {
-	ofstream npcfile;
+	ofstream npcfileout;
+	ifstream npcfilein;
 	npcstruct npc;  
 	int npctotal;
 	int x;
@@ -34,10 +35,9 @@ int main () {
 			cin >> npc.bio;
 			cout << "Quirks:";
 			cin >> npc.quirk;
-			npcfile.open ("npcinfo.txt");
-			//npcfile << npc; must explain how to write the struct to the
-			//file.
-			npcfile.close();
+			npcfilein.open ("npcinfo.txt", ios::app );
+			npcfilein >> npc.name >> npc.bio >> npc.quirk;
+			npcfilein.close();
 			break;
 			case 2:
 			//this is where the code for modifying an NPC would go
@@ -50,6 +50,7 @@ int main () {
 			break;
 			default:
 			cout << "That was not an option\n";
+			break;
 			}
 	}
 } 
