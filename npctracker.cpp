@@ -9,15 +9,17 @@
 using namespace std;
 
 struct npcstruct {
+	//int location;
 	string name;
 	string bio;
 	string quirk;
 	};
 
 int main () {
-	ofstream npcfileout;
-	ifstream npcfilein;
-	npcstruct npc;  
+	ifstream npccountout;
+	ofstream npccountin;
+	ifstream npcfileout;
+	ofstream npcfilein;  
 	int npctotal;
 	int x;
 	bool offswitch = true;
@@ -29,6 +31,15 @@ int main () {
 		cin >> x;
 		switch (x){
 			case 1:
+			int npccount;
+			npccountin.open ("npccount.txt");
+			npccountin << npccount;
+			npccountin.close();
+			npccountout.open ("npccount.txt");
+			npccountout << npccount;
+			npccountout.close();
+			npcstruct npc [5];
+			npc.location = npccount;
 			cout << "NPC Name:";
 			cin >> npc.name;
 			cout << "Bio:";
@@ -36,7 +47,7 @@ int main () {
 			cout << "Quirks:";
 			cin >> npc.quirk;
 			npcfilein.open ("npcinfo.txt", ios::app );
-			npcfilein >> npc.name >> npc.bio >> npc.quirk;
+			npcfilein << npc.name << npc.bio << npc.quirk;
 			npcfilein.close();
 			break;
 			case 2:
