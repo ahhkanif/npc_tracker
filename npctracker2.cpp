@@ -26,11 +26,11 @@ int main () {
 			case 1:
 				npcsavefile.open ("npcinfo.txt", ios::app );
 				cout << "NPC Name:";
-				npcsavefile >> name >>endl; 
+				npcsavefile << name <<endl; 
 				cout << "Bio:";
-				npcsavefile >> bio >>endl;
+				npcsavefile << bio <<endl;
 				cout << "Quirks:";
-				npcsavefile >> quirk >>endl;
+				npcsavefile << quirk <<endl;
 				npcsavefile.close();
 			break;
 			case 2:
